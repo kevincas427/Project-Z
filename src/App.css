@@ -1,0 +1,219 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Header */
+/* header {
+  width: 100%;
+} */
+
+/* Contenido principal */
+main.content {
+  flex: 1;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+/* Container para el contenido */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background-color: #212529;
+  color: white;
+  padding: 1rem 0;
+  margin-top: auto;
+}
+/* ...existing code... */
+
+article{
+  position: relative;
+  width: 100%;
+  height: 100vh; /* ocupa toda la pantalla visible */
+  overflow: hidden;
+  transition: all .4s ease;
+  background: #000;
+}
+
+/* Imagen principal: ocupa todo el contenedor y se mantiene atrás */
+.Imagen1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+/* Imagen secundaria: inicio centrada y pequeña */
+.Imagen2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28%;
+  max-width: 360px;
+  transform: translate(-50%, -50%) rotate(0deg);
+  object-fit: cover;
+  z-index: 3;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transition: all 0.9s cubic-bezier(.2,.9,.2,1);
+  cursor: pointer;
+  opacity: 0;
+}
+
+/* Descripción: oculta inicialmente (derecha) */
+.hero-desc{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255,255,255,0.95);
+  color: #111;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.9s cubic-bezier(.2,.9,.2,1), opacity 0.5s ease;
+  opacity: 0;
+  padding: 0 1.5rem;
+}
+
+/* contenido interno de la descripción */
+.hero-desc .desc-inner{
+  max-width: 420px;
+  transform: translateX(10%);
+  transition: transform 0.2s ease, opacity 0.6s ease;
+  opacity: 0;
+}
+.hero-desc h2 { margin-bottom: .5rem; }
+.hero-desc p { margin-bottom: .75rem; }
+.hero-desc .price { font-weight: 700; font-size: 1.1rem; color: #222; }
+
+/* Hover: Imagen2 crece para cubrir y se desplaza hacia la izquierda con rotación 360 */
+.hero-article:hover .Imagen2{
+  top: 0;
+  left: 0;
+  width: 70%;        /* ocupa la parte izquierda cuando cubre */
+  height: 100%;
+  transform: translate(0,0) rotate(360deg); /* rotación completa */
+  border-radius: 0;
+  box-shadow: none;
+  opacity: initial;
+}
+
+/* Al hacer hover, oscurecer ligeramente la imagen principal para contraste */
+.hero-article:hover .Imagen1{
+  transform: scale(1.5);
+  filter: brightness(0.5);
+}
+
+/* Al hacer hover, mostrar la descripción a la derecha */
+.hero-article:hover .hero-desc{
+  width: 40%;        /* ocupa la parte derecha */
+  opacity: 2;
+  padding: 2rem;
+}
+
+.hero-article:hover .hero-desc .desc-inner{
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Responsive: en pantallas pequeñas adapta el comportamiento */
+@media (max-width: 768px){
+  .Imagen2{
+    width: 40%;
+    max-width: 220px;
+  }
+  .hero-article:hover .Imagen2{
+    width: 100%;
+    left: 0;
+    height: 100%;
+    transform: translate(0,0) rotate(360deg);
+  }
+  .hero-article:hover .hero-desc{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    padding: 1rem;
+    background: rgba(255,255,255,0.95);
+  }
+  .hero-desc .desc-inner{
+  max-width: 210px;
+  transform: translateX(10%);
+  transition: transform 0.2s ease, opacity 0.6s ease;
+  opacity: 0;
+  }
+  .hero-desc h2 { margin-bottom: .5rem; }
+  .hero-desc p { margin-bottom: .75rem; }
+  .hero-desc .price { font-weight: 700; font-size: 1.1rem; color: #222; }
+}
+
+
+@media (max-width: 500px){
+  .Imagen2{
+    width: 40%;
+    max-width: 220px;
+  }
+  .hero-article:hover .Imagen2{
+    width: 100%;
+    left: 0;
+    height: 100%;
+    transform: translate(0,0) rotate(360deg);
+  }
+  .hero-article:hover .hero-desc{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    padding: 1rem;
+    background: rgba(255,255,255,0.95);
+
+  }
+  .hero-desc .desc-inner{
+  max-width: 105px;
+  transform: translateX(10%);
+  transition: transform 0.2s ease, opacity 0.6s ease;
+  opacity: 0;
+  }
+  .hero-desc h2 { margin-bottom: .5rem; }
+  .hero-desc p { margin-bottom: .75rem; }
+  .hero-desc .price { font-weight: 700; font-size: 1.1rem; color: #222; }
+}
+/* ...existing code... */
+
+
+
+
+
+
+
+
