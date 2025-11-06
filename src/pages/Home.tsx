@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import ProductCard from "../components/ProductCard";
 import Imagen1 from "../assets/rolex.jpg";
 import Imagen2 from "../assets/rolex_transicion.jpg";
+import Imagen3 from "../assets/Datejust.avif";
 
 export default function Home() {
   useEffect(() => {
@@ -41,6 +41,8 @@ export default function Home() {
 
   return (
     <div className="home-container">
+
+      {/* Primera imagen */}
       <article className="hero-article">
         <img className="Imagen1" src={Imagen1} alt="Hero" loading="eager" />
         <img
@@ -60,6 +62,31 @@ export default function Home() {
           </div>
         </div>
       </article>
+
+
+
+      {/* Segunda imagen */}
+      <article className="hero-article reverse">
+        <img className="Imagen1" src={Imagen3} alt="Hero" loading="eager" />
+        <img
+          className="Imagen2"
+          src={Imagen3}
+          alt="Transición"
+          loading="lazy"
+        />
+        <div className="hero-desc" aria-hidden="false">
+          <div className="desc-inner">
+            <h2>Reloj Colección Vintage</h2>
+            <p>
+              Edición limitada con caja de acero, cristal de zafiro y correa de
+              cuero. Diseño inspirado en modelos clásicos.
+            </p>
+            <p className="price">USD 4,250</p>
+          </div>
+        </div>
+      </article>
+
+      {/* Mostrario de productos */}
       <section className="productos-section">
         <div className="container py-5">
           <h2 className="text-center mb-4">Productos Destacados</h2>
@@ -78,6 +105,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
     </div>
   );
 }
