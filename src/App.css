@@ -5,7 +5,9 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   width: 100%;
   min-height: 100vh;
 }
@@ -48,18 +50,17 @@ footer {
 }
 /* ...existing code... */
 
-article{
+article {
   position: relative;
   width: 100%;
   height: 100vh; /* ocupa toda la pantalla visible */
   overflow: hidden;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   background: #000;
 }
 
-
 /* Imagen principal: ocupa todo el contenedor y se mantiene atrás */
-.Imagen1{
+.Imagen1 {
   position: absolute;
   top: 0;
   left: 0;
@@ -71,7 +72,7 @@ article{
 }
 
 /* Imagen secundaria: inicio centrada y pequeña */
-.Imagen2{
+.Imagen2 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -81,250 +82,269 @@ article{
   object-fit: cover;
   z-index: 3;
   border-radius: 8px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-  transition: all 0.9s cubic-bezier(.2,.9,.2,1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.9s cubic-bezier(0.2, 0.9, 0.2, 1);
   cursor: pointer;
   opacity: 0;
 }
 
 /* Descripción: oculta inicialmente (derecha) */
-.hero-desc{
+.hero-desc {
   position: absolute;
   top: 0;
   right: 0;
   width: 0%;
   height: 100%;
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
   color: #111;
   z-index: 2;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: width 0.9s cubic-bezier(.2,.9,.2,1), opacity 0.5s ease;
+  transition: width 0.9s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.5s ease;
   opacity: 0;
   padding: 0 1.5rem;
 }
 
 /* contenido interno de la descripción */
-.hero-desc .desc-inner{
+.hero-desc .desc-inner {
   max-width: 420px;
   transform: translateX(10%);
   transition: transform 0.2s ease, opacity 0.6s ease;
   opacity: 0;
 }
-.hero-desc h2 { margin-bottom: .5rem; }
-.hero-desc p { margin-bottom: .75rem; }
-.hero-desc .price { font-weight: 700; font-size: 1.1rem; color: #222; }
+.hero-desc h2 {
+  margin-bottom: 0.5rem;
+}
+.hero-desc p {
+  margin-bottom: 0.75rem;
+}
+.hero-desc .price {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #222;
+}
 
 /* Hover: Imagen2 crece para cubrir y se desplaza hacia la izquierda con rotación 360 */
-.hero-article:hover .Imagen2{
+.hero-article:hover .Imagen2 {
   top: 0;
   left: 0;
-  width: 70%;        /* ocupa la parte izquierda cuando cubre */
+  width: 70%; /* ocupa la parte izquierda cuando cubre */
   height: 100%;
-  transform: translate(0,0) rotate(360deg); /* rotación completa */
+  transform: translate(0, 0) rotate(360deg); /* rotación completa */
   border-radius: 0;
   box-shadow: none;
   opacity: initial;
 }
 
 /* Al hacer hover, oscurecer ligeramente la imagen principal para contraste */
-.hero-article:hover .Imagen1{
+.hero-article:hover .Imagen1 {
   transform: scale(1.5);
   filter: brightness(0.5);
 }
 
 /* Al hacer hover, mostrar la descripción a la derecha */
-.hero-article:hover .hero-desc{
-  width: 40%;        /* ocupa la parte derecha */
+.hero-article:hover .hero-desc {
+  width: 40%; /* ocupa la parte derecha */
   opacity: 2;
   padding: 2rem;
 }
 
-.hero-article:hover .hero-desc .desc-inner{
+.hero-article:hover .hero-desc .desc-inner {
   transform: translateX(0);
   opacity: 1;
 }
 
 /* Responsive: en pantallas pequeñas adapta el comportamiento */
-@media (max-width: 768px){
-  .Imagen2{
+@media (max-width: 768px) {
+  .Imagen2 {
     width: 40%;
     max-width: 220px;
   }
-  .hero-article:hover .Imagen2{
+  .hero-article:hover .Imagen2 {
     width: 100%;
     left: 0;
     height: 100%;
-    transform: translate(0,0) rotate(360deg);
+    transform: translate(0, 0) rotate(360deg);
   }
-  .hero-article:hover .hero-desc{
+  .hero-article:hover .hero-desc {
     width: 100%;
     position: absolute;
     top: 0;
     left: 20%;
     padding: 1rem;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
   }
-  .hero-desc .desc-inner{
-  max-width: 210px;
-  transform: translateX(10%);
-  transition: transform 0.2s ease, opacity 0.6s ease;
-  opacity: 0;
+  .hero-desc .desc-inner {
+    max-width: 210px;
+    transform: translateX(10%);
+    transition: transform 0.2s ease, opacity 0.6s ease;
+    opacity: 0;
   }
-  .hero-desc h2 { margin-bottom: .5rem; }
-  .hero-desc p { margin-bottom: .75rem; }
-  .hero-desc .price { font-weight: 700; font-size: 1.1rem; color: #222; }
+  .hero-desc h2 {
+    margin-bottom: 0.5rem;
+  }
+  .hero-desc p {
+    margin-bottom: 0.75rem;
+  }
+  .hero-desc .price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #222;
+  }
 }
 
-
-@media (max-width: 500px){
-  .Imagen2{
+@media (max-width: 500px) {
+  .Imagen2 {
     width: 40%;
     max-width: 220px;
   }
-  .hero-article:hover .Imagen2{
+  .hero-article:hover .Imagen2 {
     width: 100%;
     left: 0;
     height: 100%;
-    transform: translate(0,0) rotate(360deg);
+    transform: translate(0, 0) rotate(360deg);
   }
-  .hero-article:hover .hero-desc{
+  .hero-article:hover .hero-desc {
     width: 100%;
     position: absolute;
     top: 0;
     left: 25%;
     padding: 1rem;
-    background: rgba(255,255,255,0.95);
-
+    background: rgba(255, 255, 255, 0.95);
   }
-  .hero-desc .desc-inner{
-  max-width: 105px;
-  transform: translateX(10%);
-  transition: transform 0.2s ease, opacity 0.6s ease;
-  opacity: 0;
+  .hero-desc .desc-inner {
+    max-width: 105px;
+    transform: translateX(10%);
+    transition: transform 0.2s ease, opacity 0.6s ease;
+    opacity: 0;
   }
-  .hero-desc h2 { margin-bottom: .5rem; }
-  .hero-desc p { margin-bottom: .75rem; }
-  .hero-desc .price { font-weight: 700; font-size: 1.1rem; color: #222; }
+  .hero-desc h2 {
+    margin-bottom: 0.5rem;
+  }
+  .hero-desc p {
+    margin-bottom: 0.75rem;
+  }
+  .hero-desc .price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #222;
+  }
 }
 /* ...existing code... */
-
-
 
 /* ...existing code... */
 
 /* Variante invertida: la Imagen2 se desplaza a la derecha y la descripción aparece a la izquierda */
-.hero-article.reverse .Imagen2{
+.hero-article.reverse .Imagen2 {
   /* inicio: centrada igual que la original */
   top: 50%;
   left: 50%;
   right: auto;
   transform: translate(-50%, -50%) rotate(0deg);
-  transition: all 0.9s cubic-bezier(.2,.9,.2,1);
+  transition: all 0.9s cubic-bezier(0.2, 0.9, 0.2, 1);
 }
 
 /* Al hacer hover en la variante, Imagen2 crece y se mueve hacia la derecha */
-.hero-article.reverse:hover .Imagen2{
+.hero-article.reverse:hover .Imagen2 {
   top: 0;
   left: auto;
-  right: 0;               /* se pega al lado derecho */
-  width: 60%;             /* ocupa la parte derecha */
+  right: 0; /* se pega al lado derecho */
+  width: 60%; /* ocupa la parte derecha */
   height: 100%;
-  transform: translate(0,0) rotate(-360deg); /* rotación inversa */
+  transform: translate(0, 0) rotate(-360deg); /* rotación inversa */
   border-radius: 0;
   box-shadow: none;
   z-index: 3;
 }
 
 /* Descripción: inicia oculta en el lado derecho por defecto; la variante la hace aparecer desde la izquierda */
-.hero-article.reverse .hero-desc{
+.hero-article.reverse .hero-desc {
   /* asegurar que la descripción esté preparada para mostrarse desde la izquierda */
   left: 0;
   right: auto;
   width: 0%;
   opacity: 0;
   padding: 0;
-  transition: width 0.9s cubic-bezier(.2,.9,.2,1), opacity 0.5s ease, padding 0.3s ease;
+  transition: width 0.9s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.5s ease,
+    padding 0.3s ease;
   z-index: 2;
 }
 
 /* Al hacer hover, la descripción ocupa la parte izquierda */
-.hero-article.reverse:hover .hero-desc{
+.hero-article.reverse:hover .hero-desc {
   width: 40%;
   opacity: 1;
   padding: 2rem;
 }
 
 /* anima el contenido interno de la descripción */
-.hero-article.reverse:hover .hero-desc .desc-inner{
+.hero-article.reverse:hover .hero-desc .desc-inner {
   transform: translateX(0);
   opacity: 1;
 }
 
 /* Si necesitas ajuste responsive (teléfonos) */
-@media (max-width: 768px){
-  .hero-article.reverse .Imagen2{
+@media (max-width: 768px) {
+  .hero-article.reverse .Imagen2 {
     width: 40%;
     max-width: 220px;
   }
-  .hero-article.reverse:hover .Imagen2{
+  .hero-article.reverse:hover .Imagen2 {
     width: 100%;
     left: 0;
     right: auto;
-    transform: translate(0,0) rotate(-360deg);
+    transform: translate(0, 0) rotate(-360deg);
   }
-  .hero-article.reverse:hover .hero-desc{
+  .hero-article.reverse:hover .hero-desc {
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     padding: 1rem;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
   }
 }
 
-
-
-@media (max-width: 500px){
-.hero-article.reverse .Imagen2{
+@media (max-width: 500px) {
+  .hero-article.reverse .Imagen2 {
     width: 40%;
     max-width: 220px;
   }
-  .hero-article:hover .Imagen2{
+  .hero-article:hover .Imagen2 {
     width: 100%;
     left: 0;
     height: 100%;
-    transform: translate(0,0) rotate(360deg);
+    transform: translate(0, 0) rotate(360deg);
   }
-  .hero-article.reverse:hover .hero-desc{
+  .hero-article.reverse:hover .hero-desc {
     width: 100%;
     position: absolute;
     top: 0;
     left: 25%;
     padding: 1rem;
-    background: rgba(255,255,255,0.95);
-
+    background: rgba(255, 255, 255, 0.95);
   }
-  .hero-desc .desc-inner{
-  max-width: 105px;
-  transform: translateX(10%);
-  transition: transform 0.2s ease, opacity 0.6s ease;
-  opacity: 0;
+  .hero-desc .desc-inner {
+    max-width: 105px;
+    transform: translateX(10%);
+    transition: transform 0.2s ease, opacity 0.6s ease;
+    opacity: 0;
   }
-  .hero-desc h2 { margin-bottom: .5rem; }
-  .hero-desc p { margin-bottom: .75rem; }
-  .hero-desc .price { font-weight: 700; font-size: 1.1rem; color: #222; }
+  .hero-desc h2 {
+    margin-bottom: 0.5rem;
+  }
+  .hero-desc p {
+    margin-bottom: 0.75rem;
+  }
+  .hero-desc .price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #222;
+  }
 }
 /* ...existing code... */
-
-
-
-
-
-
-
 
 /* evitar scroll cuando el overlay esté abierto */
 .no-scroll {
@@ -387,7 +407,7 @@ article{
   text-decoration: none;
   font-size: 2rem;
   font-weight: 600;
-  transition: color .15s ease, transform .15s ease;
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
 .menu-list a:hover {
@@ -402,16 +422,71 @@ article{
 
 /* animación de aparición */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* adaptaciones móviles */
 @media (max-width: 576px) {
-  .menu-list a { font-size: 1.5rem; }
-  .menu-inner { padding: 1rem; }
-  .close-btn { top: .5rem; right: .5rem; font-size: 2rem; }
+  .menu-list a {
+    font-size: 1.5rem;
+  }
+  .menu-inner {
+    padding: 1rem;
+  }
+  .close-btn {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 2rem;
+  }
 }
 
 /* ...existing code... */
 
+/* Diseño del footer */
+
+footer {
+  padding: 60px 0;
+  color: #ccc;
+}
+
+.Footer-Contenedor {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.Footer-titulo {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.Footer-titulo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff00ff, #ff1493);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.Footer-titulo:hover::after {
+  transform: scaleX(1);
+}
+
+/* Fin del diseño del footer */
