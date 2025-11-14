@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap");
+
 /* Reset básico */
 * {
   margin: 0;
@@ -11,6 +13,96 @@ body,
   width: 100%;
   min-height: 100vh;
 }
+
+/* header */
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  gap: 12px;
+  background: #fff;
+}
+
+.Navbar ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+.titulo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem; /* ~36px */
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #1f2937;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0 12px;
+  text-shadow: 0 3px 8px rgba(31, 41, 55, 0.12);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 1.4rem;
+  }
+
+  .Navbar {
+    padding: 10px;
+    gap: 8px;
+  }
+}
+
+.Navbar li {
+  cursor: pointer;
+}
+
+/* Centrar el título perfectamente */
+.titulo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+/* Alinear y separar iconos del texto en la parte derecha del Navbar */
+.Navbar > ul:last-child li {
+  display: flex;
+  align-items: center; /* centra verticalmente texto e icono */
+  gap: 8px;            /* espacio entre texto e icono */
+  padding: 0 6px;
+}
+
+.Navbar > ul:last-child li svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* Si quieres más separación en móviles: */
+@media (max-width: 600px) {
+  .Navbar > ul:last-child li {
+    gap: 6px;
+  }
+  .Navbar > ul:last-child li svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+
+/* fin del header */
 
 /* Contenedor principal */
 .app-container {

@@ -27,8 +27,8 @@ export default function Footer(){
             <li>Icono de Whatsapp</li>
           </ul>
         </div>
-        <p>© {new Date().getFullYear()} Mi eCommerce. Todos los derechos reservados.</p>
       </div>
+      <p>© {new Date().getFullYear()} Mi eCommerce. Todos los derechos reservados.</p>
     </footer>
     );
 }
