@@ -1,17 +1,20 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import Approutes from "./routes/Approutes";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import {NavBarDemo} from "./components/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { Footer } from './components/UI/footer-section';
+
 
 function App() {
   return (
     <Router>
       <div className="app-container">
-        <Header />
-        <main className="content">
+        <div className="Conten-header">
+          <NavBarDemo />
+        </div>
+        <main className="content ">
           <Approutes />
         </main>
         <Footer />
@@ -19,5 +22,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
